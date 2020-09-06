@@ -10,6 +10,7 @@ y
 y
 y
 y
+
 MSI
 mysql -u root -p${MYPWD} -e "SELECT 1+1";
 
