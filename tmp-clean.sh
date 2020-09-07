@@ -1,5 +1,5 @@
 #!/bin/bash
-#if partition /dev/sda2 exceeds 9 Go, 
+#if partition /dev/sda2 exceeds 9% of Use, 
 #then remove only files (and not directories) in TMP_DIRS variable tmp directories that was last modified 1h ago
 #and if done, log a message with date and time when it was done to syslog
 
