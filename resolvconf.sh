@@ -1,5 +1,5 @@
 #!/bin/bash
-#Make /etc/resolv.conf permanent
+#Make /etc/resolv.conf permanent on Ubuntu 18.04
 rm /etc/resolv.conf
 apt-get install resolvconf -y
 echo"
