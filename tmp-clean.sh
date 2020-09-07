@@ -1,6 +1,6 @@
 #!/bin/bash
 #if partition /dev/sda2 exceeds 9 Go, 
-#then remove files only in TMP_DIRS variable tmp directories that was last modified 1h ago
+#then remove only files (and not directories) in TMP_DIRS variable tmp directories that was last modified 1h ago
 #and if done, log a message with date and time when it was done to syslog
 
 USAGE=$(df -H | grep '/dev/sda2' | awk '{ print $5 }' | cut -c1)
