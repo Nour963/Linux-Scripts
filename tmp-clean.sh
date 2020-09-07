@@ -12,3 +12,6 @@ then
   logger "cleaned up at `date`"
 fi
 
+#Make it a cronjob every 3 days
+#crontab -e
+#0 */3 * * * /bin/bash /opt/script/tmp-cleanup.sh
