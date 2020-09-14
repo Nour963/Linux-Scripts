@@ -12,6 +12,7 @@ exec bash
 #increment the last number of the name exp student1 becomes student2
 ############################
 
+#!/bin/bash
 OLDNAME=$(hostname)
 OLDNUM=$(hostname | grep -Eo '[[:digit:]]+')
 NEWNUM=$((OLDNUM+1))
