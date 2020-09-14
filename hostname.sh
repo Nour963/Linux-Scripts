@@ -17,7 +17,7 @@ OLDNAME=$(hostname)
 OLDNUM=$(hostname | grep -Eo '[[:digit:]]+')
 NEWNUM=$((OLDNUM+1))
 NEWNAME=$(echo ${OLDNAME/$OLDNUM/$NEWNUM})
-sed -i "s/$OLDNAME/$NEWNAME/g" /etc/hostname
+echo $NEWNAME > /etc/hostname
 #in case where 127.0.1.1 is already set
 sed -i "s/$OLDNAME/$NEWNAME/g" /etc/hosts
 #in case where 127.0.1.1 is not set
