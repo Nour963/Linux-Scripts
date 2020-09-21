@@ -3,7 +3,9 @@
 #then remove only files (and not directories) in TMP_DIRS variable tmp directories that was last modified 1h ago
 #and if done, log a message with date and time when it was done to syslog
 
-USAGE=$(df -H | grep '/dev/sda2' | awk '{ print $5 }' | cut -c1)
+USAGE=$(df -H | grep '/dev/sda2' | awk '{ print $5 }' | cut -d "%" -f1) #percentage of disk use, then remove '%' sign
+#USAGE=$(df -H | grep '/dev/sda2' | awk '{ print $4 }' | cut -d "G" -d "M" -f1) 
+#size of available disk in Gigabyte or Megabyte then either remove 'G' or 'M' from the result
 TMP_DIRS="/tmp /var/tmp /usr/src/tmp /mnt/tmp"
 
 if [[ "$USAGE" -gt 9 ]]
