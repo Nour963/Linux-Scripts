@@ -4,8 +4,8 @@
 #and if done, log a message with date and time when it was done to syslog
 
 USAGE=$(df -H | grep '/dev/sda2' | awk '{ print $5 }' | cut -d "%" -f1) #percentage of disk use, then remove '%' sign
-#USAGE=$(df -H | grep '/dev/sda2' | awk '{ print $4 }' | cut -d "G" -d "M" -f1) 
-#size of available disk in Gigabyte or Megabyte then either remove 'G' or 'M' from the result
+#USAGE=$(df -H | grep '/dev/sda2' | awk '{ print $4 }' | sed 's/.$//') "removes last caracter, no matter what it is
+
 TMP_DIRS="/tmp /var/tmp /usr/src/tmp /mnt/tmp"
 
 if [[ "$USAGE" -gt 9 ]]
