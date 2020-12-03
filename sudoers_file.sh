@@ -1,4 +1,5 @@
 #!/bin/bash
+#automate writing to sudoers file
 NF_LIST="nrf amf pcrf udr udm ausf upf sgwu smf sgwc mme hss"
 VAR=(.service " ") #example: 'systemctl start sshd.service' AND 'systemctl start sshd'
 AC="start restart stop status"
