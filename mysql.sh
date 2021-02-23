@@ -24,7 +24,7 @@ MSI2
 
 ##configure mysql on UBUNTU16 and provision it
 MYSQL_ROOT_PASSWORD='D33Ps3CR3T?'
-echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+#echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections #in case you're in a non-interractive shell
 echo debconf mysql-server/root_password password $MYSQL_ROOT_PASSWORD | \
   debconf-set-selections
 echo debconf mysql-server/root_password_again password $MYSQL_ROOT_PASSWORD | \
