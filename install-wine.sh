@@ -27,7 +27,7 @@ cat > /usr/local/bin/microsip <<'EOF'
 #!/bin/bash
 cd ~/microsip
 DISPLAY=:10.0
-DISPLAY=:10.0 wine microsip.exe &>/dev/null
+DISPLAY=:10.0 wine microsip.exe 2>/dev/null
 EOF
 chmod +x /usr/local/bin/microsip
 
