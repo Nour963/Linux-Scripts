@@ -1,3 +1,5 @@
+################# WARNING: you need a decent internet connexion speed for the exe program to run, 
+#even manually running winecfg with X server enabled won't work with poor internet speed ####################
 #Ubuntu 18.04
 #!/bin/bash
 dpkg --add-architecture i386
@@ -23,6 +25,7 @@ unzip Micro*.zip -d /home/ubuntu/microsip
 rm Micro*.zip
 chown -R ubuntu:ubuntu /home/ubuntu/microsip
 #how to run microsip with wine, WITH X SERVER enabled
+#no need to change $DISPLAY though
 cat > /usr/local/bin/microsip <<'EOF'
 #!/bin/bash
 echo "
@@ -58,13 +61,12 @@ mkdir /home/kali/microsip
 unzip Micro*.zip -d /home/kali/microsip
 apt-get install unzip -yqq
 rm Micro*.zip
-#how to run microsip with wine
+#how to run microsip with wine, no need to change $DISPLAY
 cat > /usr/local/bin/microsip <<'EOF'
 #!/bin/bash
 echo "
 To exit the program, first close all opened windows, then hit Ctrl+C"
 cd ~/microsip
-DISPLAY=:10.0
-DISPLAY=:10.0 wine microsip.exe &>/dev/null
+wine microsip.exe &>/dev/null || echo "something went wrong, please run the command again"
 EOF
 chmod +x /usr/local/bin/microsip
