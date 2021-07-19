@@ -1,4 +1,5 @@
 #Ubuntu 18.04
+#!/bin/bash
 dpkg --add-architecture i386
 wget -qO - https://dl.winehq.org/wine-builds/winehq.key | apt-key add -
 apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
@@ -9,9 +10,9 @@ apt-get update && apt-get install wine32 -yqq
 #run this WITHOUT X SERVER
 runuser -l "ubuntu" -c "/usr/bin/winecfg || true"
 #copy outside files
-#this 3 reg files (user, user-def, system) are created inside /home/ubuntu/.wine when winecfg is run with ubuntu user with X Server enabled
+#these 3 reg files (user, user-def, system) are created inside /home/ubuntu/.wine when winecfg is run with ubuntu user with X Server enabled
 cp *.reg /home/ubuntu/.wine
-#change old hostname on system.reg
+#change old hostname on old system.reg file
 sed -i "s/test/$(hostname)/g" /home/ubuntu/.wine/system.reg
 chown -R ubuntu:ubuntu /home/ubuntu
 #download microsip
@@ -32,6 +33,7 @@ chmod +x /usr/local/bin/microsip
 
 ======================================================================
 #Kali 2012.2
+#!/bin/bash
 #install wine to run microsip.exe
 apt-get update
 apt-get install software-properties-common wget -y
