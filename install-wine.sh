@@ -25,6 +25,8 @@ chown -R ubuntu:ubuntu /home/ubuntu/microsip
 #how to run microsip with wine, WITH X SERVER enabled
 cat > /usr/local/bin/microsip <<'EOF'
 #!/bin/bash
+echo "
+To exit the program, first close all opened windows, then hit Ctrl+C"
 cd ~/microsip
 DISPLAY=:10.0
 DISPLAY=:10.0 wine microsip.exe 2>/dev/null
@@ -59,6 +61,8 @@ rm Micro*.zip
 #how to run microsip with wine
 cat > /usr/local/bin/microsip <<'EOF'
 #!/bin/bash
+echo "
+To exit the program, first close all opened windows, then hit Ctrl+C"
 cd ~/microsip
 DISPLAY=:10.0
 DISPLAY=:10.0 wine microsip.exe &>/dev/null
