@@ -10,7 +10,7 @@ apt-get update && apt-get install wine32 -yqq
 #run this WITHOUT X SERVER
 runuser -l "ubuntu" -c "/usr/bin/winecfg || true"
 #copy outside files
-#these 3 reg files (user, user-def, system) are created inside /home/ubuntu/.wine when winecfg is run with ubuntu user with X Server enabled
+#these 3 reg files (user, userdef, system) are created inside /home/ubuntu/.wine when winecfg is run with ubuntu user with X Server enabled
 cp *.reg /home/ubuntu/.wine
 #change old hostname on old system.reg file
 sed -i "s/test/$(hostname)/g" /home/ubuntu/.wine/system.reg
