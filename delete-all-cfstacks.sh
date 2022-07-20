@@ -3,6 +3,7 @@
 ## either ./script.sh   to delete all stacks
 ## or ./script.sh "LBL-CNT1-4555-1"        to exclude a stack from deletion
 ## or ./script.sh "LBL-CNT1-4555-1\|LBL-CNT1-4555-2"    to exclude multiple stacks from deletion
+if [[ $AWS_DEFAULT_PROFILE == 'prod' ]]; then echo 'GET OUT OF PROD ENV!!!' ; exit 1; fi
 export AWS_RETRY_MODE=standard; export AWS_MAX_ATTEMPTS=1000
 aws cloudformation list-stacks --query 'StackSummaries[]|[?StackStatus != `DELETE_COMPLETE`].[StackName]' --output text > stacknames.txt.tmp
 if [[ "$1" != '' ]]; then cp stacknames.txt.tmp stacknames.txt.tmp2;  grep -v "$1" stacknames.txt.tmp2 > stacknames.txt.tmp; fi
